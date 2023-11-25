@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Base Apparel coming soon page</title>
+  </head>
+  <body class="grid place-content-center h-screen overflow-hidden">
+    <div
+      class="container rounded-[10px] md:flex"
+    >
+    <div class="content space-y-[30px] md:px-[150px] md:w-[70%]">
+      <img class="pt-[30px] px-[35px]" src="./images/logo.svg" alt="">
+      <img class="w-full md:hidden" src="./images/hero-mobile.jpg" alt="">
+      <div class="px-[35px] text-center space-y-[20px] md:pt-[100px] md:text-left">
+        <h1 class="text-6xl"><p class="text-[#cf9696] font-extralight">WE'RE</p>COMING SOON</h1>
+        <p class="text-[#cf9696]">
+          Hello fellow shoppers! We're currently building our new fashion store. Add you email below to stay up-to-date with announcements and our launch deals.
+        </p>
+      </div>
+      <div class="input px-[35px] relative">
+        <input class="w-full py-[15px] px-[30px] border-2 border-[#cf9696] border-opacity-50 rounded-[35px] placeholder:text-[#cf9696] placeholder:text-opacity-50 outline-none bg-transparent" type="email" placeholder="Email Address">
+        <a href="#" class="absolute top-0 right-[5%] rounded-[35px] w-[80px] md:w-[100px] h-[58px] grid place-items-center bg-gradient-to-br from-[#f8bfbf] to-[#ed8c8c]"><img  src="./images/icon-arrow.svg" alt=""></a>
+        <p class="text-red-500 pl-[30px] pt-[5px] text-xs hidden">Please provide a valid</p>
+      </div>
+    </div>
+      <div class="hidden md:block "><img class="h-full w-full" src="./images/hero-desktop.jpg" alt=""></div>
+    </div>
+    <script>
+      let send = document.querySelector(".input a")
+      let input = document.querySelector("input")
+      let container = document.querySelector(".input")
+      let validEmail = /\w+@\w+.\w+/g
+      send.onclick = function (){
+        if(input.value == "" || !validEmail.test(input.value)){
+          container.classList.add("active")
+          input.style.borderColor = "red"
+          send.nextElementSibling.classList.remove("hidden")
+        }else{
+          send.nextElementSibling.classList.add("hidden")
+          container.classList.remove("active")
+          input.style.borderColor = "#cf969681"
+        }
+        console.log(!validEmail.test(input.value))
+      }
+    </script>
+  </body>
+</html>
